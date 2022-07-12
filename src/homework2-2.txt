@@ -1,0 +1,270 @@
+DROP TABLE IF EXISTS customers;
+CREATE TABLE customers
+(
+    id         SERIAL PRIMARY KEY,
+    email      VARCHAR(40) NOT NULL,
+    first_name VARCHAR(30) NOT NULL,
+    last_name  VARCHAR(30) NOT NULL,
+    age        INT         NOT NULL,
+    weight     INT         NOT NULL
+);
+INSERT INTO customers(email, first_name, last_name, age, weight)
+VALUES ('grgher@mail.ru', 'David', 'Beckham', 41, 85),
+       ('erghdbhfd@mail.ru', 'Tom', 'Cruise', 42, 84),
+       ('fgrehs@mail.ru', 'Barack', 'Obama', 53, 93),
+       ('rghehthdh@mail.ru', 'Johnny', 'Depp', 64, 92),
+       ('rgregerghehr@mail.ru', 'Tom', 'Hanks', 58, 87);
+SELECT *
+from customers;
+DROP TABLE IF EXISTS vehicles;
+CREATE TABLE vehicles
+(
+    id         SERIAL PRIMARY KEY,
+    vin        VARCHAR(20) NOT NULL,
+    make       VARCHAR(20) NOT NULL,
+    model      VARCHAR(20) NOT NULL,
+    mileage    INT         NOT NULL,
+    last_visit DATE        NOT NULL
+);
+INSERT INTO vehicles(vin, make, model, mileage, last_visit)
+VALUES ('876435', 'SUBARU', 'OUTBACK', 846312, '2022-07-10'),
+       ('546634', 'CHEVROLET', 'TRAVERSE', 95182, '1998-08-15'),
+       ('7569682', 'TOYOTA', 'CAMRY', 32614, '1965-02-28'),
+       ('135689', 'HONDA', 'ACCORD', 50120, '2020-10-06'),
+       ('291736', 'MERCEDES BENZ', 'S-CLASS', 60240, '2018-06-14');
+SELECT *
+from vehicles;
+DROP TABLE IF EXISTS employees;
+CREATE TABLE employees
+(
+    id              SERIAL PRIMARY KEY,
+    position        VARCHAR NOT NULL,
+    date_hired      DATE    NOT NULL,
+    starting_salary INT     NOT NULL,
+    current_salary  INT     NOT NULL,
+    working_hours   INT     NOT NULL
+);
+INSERT INTO employees(position, date_hired, starting_salary, current_salary, working_hours)
+VALUES ('director', '2022-05-06', 5000, 6000, 15),
+       ('manager', '2021-08-06', 4000, 7000, 10),
+       ('cleaner', '2018-10-26', 5000, 12000, 8),
+       ('carpenter', '2019-11-27', 1000, 10000, 9),
+       ('seller', '2017-12-12', 8000, 9000, 11);
+SELECT *
+from employees;
+DROP TABLE IF EXISTS states;
+CREATE TABLE states
+(
+    id                 SERIAL PRIMARY KEY,
+    state_abbreviation VARCHAR(2) NOT NULL,
+    population         INT        NOT NULL,
+    area               INT        NOT NULL,
+    capital            VARCHAR    NOT NULL,
+    celebrity          VARCHAR    NOT NULL
+);
+INSERT INTO states(state_abbreviation, population, area, capital, celebrity)
+VALUES ('TX', 28640000, 695662, 'Austin', 'Selena Gomez'),
+       ('CA', 39350000, 423970, 'Sacramento', 'Tom Hanks'),
+       ('AL', 736990, 1723000, 'Juneau', 'Sarah Palin'),
+       ('PA', 12790000, 119282, 'Harrisburg', 'Kobe Bryant'),
+       ('MD', 6038000, 32134, 'Annapolis', 'Michael Phelps');
+SELECT *
+from states;
+DROP TABLE IF EXISTS texas;
+CREATE TABLE texas
+(
+    id            SERIAL PRIMARY KEY,
+    city          VARCHAR NOT NULL,
+    university    VARCHAR NOT NULL,
+    public_school VARCHAR NOT NULL,
+    park          VARCHAR NOT NULL,
+    company       VARCHAR NOT NULL
+);
+INSERT INTO texas(city, university, public_school, park, company)
+VALUES ('Houston', 'University of Houston', 'Klein Forest High School', 'Memorial Park', 'Walmart'),
+       ('Dallas', 'University of Texas', 'Woodrow Wilson High School', 'Klyde Warren Park', 'AT&T'),
+       ('Austin', 'St. Edwards University', 'Crockett High School', 'Mayfield Park & Nature Preserve', 'HP'),
+       ('San Antonio', 'San Antonio College', 'Clark High School', 'Hemisfair Park', 'Bank of America'),
+       ('Texas City', 'Galveston College', 'La Marque High School', 'Rainbow Park', 'Target');
+SELECT *
+from texas;
+DROP TABLE IF EXISTS soft_drinks;
+CREATE TABLE soft_drinks
+(
+    id           SERIAL PRIMARY KEY,
+    company_name VARCHAR NOT NULL,
+    caffeine     INT     NOT NULL,
+    calories     INT     NOT NULL,
+    size         INT     NOT NULL,
+    founder      VARCHAR NOT NULL
+);
+INSERT INTO soft_drinks(company_name, caffeine, calories, size, founder)
+VALUES ('Coca Cola', 34, 140, 12, 'Dr. John S. Pemberton'),
+       ('Pepsi', 38, 150, 12, 'pharmacist Caleb Bradham'),
+       ('Diet Coke', 46, 0, 12, 'Jack Carew'),
+       ('Dr Pepper', 42, 150, 12, 'Charles Alderton'),
+       ('Mountain Dew', 54, 170, 12, 'Barney and Ally Hartman');
+SELECT *
+from soft_drinks;
+DROP TABLE IF EXISTS nba_teams;
+CREATE TABLE nba_teams
+(
+    id             SERIAL PRIMARY KEY,
+    team_name      VARCHAR NOT NULL,
+    arena          VARCHAR NOT NULL,
+    arena_capacity INT     NOT NULL,
+    founded        DATE    NOT NULL,
+    head_coach     VARCHAR NOT NULL
+);
+INSERT INTO nba_teams(team_name, arena, arena_capacity, founded, head_coach)
+VALUES ('Chicago Bulls', 'United Center', 23500, '1966-01-16', 'Billy Donovan'),
+       ('Utah Jazz', 'Vivint Arena', 18300, '1974-01-01', 'Will Hardy'),
+       ('Golden State Warriors', 'Chase Center', 18064, '1946-01-01', 'Steve Kerr'),
+       ('Phoenix Suns', 'Phoenix Suns Arena', 18422, '1968-01-01', 'Monty Williams'),
+       ('Milwaukee Bucks', 'Fiserv Forum', 17385, '1968-05-22', 'Mike Budenholzer');
+SELECT *
+from nba_teams;
+DROP TABLE IF EXISTS american_football_teams;
+CREATE TABLE american_football_teams
+(
+    id                SERIAL PRIMARY KEY,
+    team_name         VARCHAR NOT NULL,
+    area              VARCHAR NOT NULL,
+    general_manager   VARCHAR NOT NULL,
+    fight_song        TEXT    NOT NULL,
+    super_bowl_titles INT     NOT NULL,
+    nfl_titles        INT     NOT NULL
+);
+INSERT INTO american_football_teams(team_name, area, general_manager, fight_song, super_bowl_titles, nfl_titles)
+VALUES ('New England Patriots', 'Greater Boston area', 'Pat Sullivan', 'I am Shipping Up to Boston', 6, 6),
+       ('Pittsburgh Steelers', 'Pittsburgh', 'Omar Khan', 'Black and Yellow', 6, 6),
+       ('Dallas Cowboys', 'The Star in Frisco', 'Jerry Jones', 'Cowboys Stampede March', 3, 5),
+       ('Denver Broncos', 'Denver', 'George Paton', 'Broncos Fight Song', 3, 3),
+       ('San Francisco 49ers', 'San Francisco Bay area', 'John  Lynch', 'Roll with it', 5, 5);
+SELECT *
+from american_football_teams;
+DROP TABLE IF EXISTS devices;
+CREATE TABLE devices
+(
+    id       SERIAL PRIMARY KEY,
+    entity   VARCHAR NOT NULL,
+    function TEXT    NOT NULL,
+    brand    VARCHAR NOT NULL,
+    price    INT     NOT NULL,
+    inventor VARCHAR NOT NULL
+);
+INSERT INTO devices(entity, function, brand, price, inventor)
+VALUES ('vacuum cleaner',
+        'remove and clean many kinds of surfaces by means of sucking and removing dust and small particles', 'Samsung',
+        4000, 'Hubert Cecil Booth'),
+       ('Video Game Console', 'a fully functional Web browser and support for online gaming', 'PlayStation', 6000,
+        'Ken Kutaragi'),
+       ('iPhone', 'make calls, browse the web, take pictures, play music and send and receive emails and text messages',
+        'Apple', 12000, 'Steve Jobs');
+SELECT *
+from devices;
+DROP TABLE IF EXISTS flowers;
+CREATE TABLE flowers
+(
+    id      SERIAL PRIMARY KEY,
+    type    VARCHAR NOT NULL,
+    color   VARCHAR NOT NULL,
+    country VARCHAR NOT NULL,
+    height  INT     NOT NULL,
+    count   INT     NOT NULL
+);
+INSERT INTO flowers(type, color, country, height, count)
+VALUES ('Rose', 'red', 'Kyrgyzstan', 7, 9),
+       ('Sun Flower', 'yellow', 'America', 5, 7);
+SELECT *
+from flowers;
+DROP TABLE IF EXISTS teachers;
+CREATE TABLE teachers
+(
+    id SERIAL PRIMARY KEY,
+    major VARCHAR NOT NULL,
+    region VARCHAR NOT NULL,
+    marital_status VARCHAR NOT NULL,
+    children INT NOT NULL,
+    student INT NOT NULL,
+    gender VARCHAR NOT NULL
+);
+INSERT INTO teachers(major, region, marital_status, children, student, gender)
+VALUES ('chemistry', 'Chuy', 'single', 2, 23, 'female'),
+       ('mathematics', 'Osh', 'married', 3, 45, 'male');
+SELECT *
+from teachers;
+DROP TABLE IF EXISTS tennis_players;
+CREATE TABLE tennis_players
+(
+  id SERIAL PRIMARY KEY,
+  full_name VARCHAR NOT NULL,
+  won INT NOT NULL,
+  lost INT NOT NULL,
+  singles INT NOT NULL,
+  masters INT NOT NULL,
+  doubles INT NOT NULL,
+  davis_cups INT NOT NULL,
+  olympic_medals INT NOT NULL,
+  grand_slams INT NOT NULL
+);
+INSERT INTO tennis_players(full_name, won, lost, singles, masters, doubles, davis_cups, olympic_medals, grand_slams)
+VALUES ('Novak Djokovic', 1011, 204, 87, 38, 1, 1, 1, 20);
+SELECT *
+from tennis_players;
+DROP TABLE IF EXISTS world_cups;
+CREATE TABLE world_cups
+(
+    id SERIAL PRIMARY KEY,
+    host_country VARCHAR NOT NULL,
+    date DATE NOT NULL,
+    goals INT NOT NULL,
+    red_cards INT NOT NULL,
+    penalties INT NOT NULL
+);
+INSERT INTO world_cups(host_country, date, goals, red_cards, penalties)
+VALUES ('France', '1998-06-10', 171, 22, 18),
+       ('South Korea', '2002-05-31', 161, 18, 18),
+       ('Russia', '2018-06-14', 169, 4, 29);
+SELECT *
+from world_cups;
+DROP TABLE IF EXISTS us_presidents;
+CREATE TABLE us_presidents
+(
+    id SERIAL PRIMARY KEY,
+    full_name VARCHAR NOT NULL,
+    year INT NOT NULL,
+    duration INT NOT NULL,
+    state VARCHAR(2) NOT NULL,
+    political_party VARCHAR NOT NULL,
+    first_lady VARCHAR NOT NULL,
+    vice_president VARCHAR NOT NULL
+);
+INSERT INTO us_presidents(full_name, year, duration, state, political_party, first_lady, vice_president)
+VALUES ('George Washington', 1789, 8, 'VA', 'Independent Politician', 'Martha Washington', 'John Adams'),
+       ('John Adams', 1797, 4, 'MA', 'Democratic-Republican Party', 'Abigail Adams', 'Thomas Jefferson'),
+       ('Thomas Jefferson', 1801, 8, 'VA', 'Democratic-Republican Party', 'Martha Wayles Skelton Jefferson', 'Aaron Burr'),
+       ('James Madison', 1809, 8, 'VA', 'Democratic-Republican Party', 'Dolley Madison', 'George Clinton'),
+       ('James Monroe', 1817, 8, 'VA', 'Democratic-Republican Party', 'Elizabeth Kortroght Monroe', 'Daniel D. Tompkins');
+DELETE FROM us_presidents where duration = 4;
+SELECT *
+from us_presidents;
+DROP TABLE IF EXISTS airlines;
+CREATE TABLE airlines
+(
+    id SERIAL PRIMARY KEY,
+    company_name VARCHAR NOT NULL,
+    website VARCHAR NOT NULL,
+    employees INT NOT NULL,
+    founded_year INT NOT NULL,
+    headquarters VARCHAR NOT NULL,
+    planes VARCHAR NOT NULL
+);
+INSERT INTO airlines(company_name, website, employees, founded_year, headquarters, planes)
+VALUES ('Qatar Airways', 'www.qatarairways.com', 50110, 1997, 'Doha', 'more than 200 aircraft'),
+       ('Fly Emirates', 'www.emirates.com', 105730, 1985, 'Dubai', '254 passenger aircraft and 10 cargo aircraft'),
+       ('Etihad Airways', 'www.etihad.com', 13500, 2002, 'Abu Dhabi', '115'),
+       ('British Airways', 'www.expedia.com', 4312, 1974, 'London', '190'),
+       ('Aeroflot', 'www.aeroflot.com', 15000, 1923, 'Moscow', '244 passenger aircraft');
+SELECT *
+from airlines;
